@@ -27,8 +27,8 @@ int main(int argc, char *argv[])					// Initialize main and command line argumen
 		printf("Range must be a number.\n");			// Return an error message and exit.
 
 	else{								// Otherwise,
-		const long double max = strtol(argv[1],NULL,10);	// Parse input for integer value
-		int * set = (int*) calloc (max, sizeof(int));		// Create an array of 2,000,000 integers.
+		const long double max = strtol(argv[1],NULL,10);	// Parse input for integer value, store to "max"
+		int * set = (int*) calloc (max, sizeof(int));		// Create an array of "max" integers.
 		long i = 0;						// Initialize our index variable. We'll use this for multiplication later.
 
 		for(i = 0; i < max; i++)				// Set all values in the array to 1.
@@ -37,9 +37,9 @@ int main(int argc, char *argv[])					// Initialize main and command line argumen
 		long pos = 0;						// Initialize our position variable. Position n represents number n+1.
 		int count = 0;
 		long double sum = 0;
-		for(pos = 2; pos < max; pos++){ 			// Starting at 2, incrementing by 1, and ending at 2,000,000,
+		for(pos = 2; pos < max; pos++){ 			// Starting at 2, incrementing by 1, and ending at "max",
 			if(set[pos - 1] != 0){				// Determine if this address has a nonzero value. If so,
-				for(i = 2; (i * pos) < max; i++)	// Multiply this address by incrementing integers until the product exceeds 2,000,000,
+				for(i = 2; (i * pos) < max; i++)	// Multiply this address by incrementing integers until the product exceeds "max",
 					set[(i * pos - 1)] = 0;		// And set all of these addresses equal to zero.
 				count++;
 				sum = sum + pos;
